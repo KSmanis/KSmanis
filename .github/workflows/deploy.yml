@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
       - name: Make 3D contribution graph
         uses: yoshi389111/github-profile-3d-contrib@208d8215bd117497a02c94f559f94474ba23819c # v0.9.1
         env:
