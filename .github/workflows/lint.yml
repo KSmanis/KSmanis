@@ -3,14 +3,22 @@ on: [pull_request, push]
 jobs:
   prek:
     runs-on: ubuntu-latest
+    env:
+      PREK_COLOR: always
     steps:
       - name: Check out repository
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
         with:
           fetch-depth: 0
-      - name: Run gitlint
+      - name: Set up Python
+        uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6
+        with:
+          python-version: '3.x'
+      - name: Set up prek
         uses: j178/prek-action@91fd7d7cf70ae1dee9f4f44e7dfa5d1073fe6623 # v1.0.11
         with:
-          extra-args: "--hook-stage manual gitlint-ci"
+          install-only: true
+      - name: Run gitlint
+        run: prek run --hook-stage manual gitlint-ci
       - name: Run prek
-        uses: j178/prek-action@91fd7d7cf70ae1dee9f4f44e7dfa5d1073fe6623 # v1.0.11
+        run: prek run --all-files --show-diff-on-failure
