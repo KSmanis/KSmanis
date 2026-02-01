@@ -1,3 +1,3 @@
 <!-- markdownlint-disable first-line-heading -->
 
-![3D contribution graph](https://raw.githubusercontent.com/KSmanis/KSmanis/profile-3d-contrib/profile-customize.svg)
+![GitHub contribution grid snake](https://raw.githubusercontent.com/KSmanis/KSmanis/artifacts/snake.svg)
