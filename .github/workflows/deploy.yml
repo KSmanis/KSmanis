@@ -3,10 +3,15 @@ on:
   schedule:
     - cron: "0 0 * * *"
   workflow_dispatch:
+concurrency:
+  cancel-in-progress: false
+  group: ${{ github.workflow }}
 permissions:
-  contents: write
+  contents: read
 jobs:
   deploy:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Generate artifacts
